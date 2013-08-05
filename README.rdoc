@@ -1,8 +1,0 @@
-== How to use
-
-1) Fork this.
-
-2) Rename.
-
-3) Implement your code.
-
