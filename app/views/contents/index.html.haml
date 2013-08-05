@@ -26,7 +26,7 @@
               - @contents.each do |content|
                 %tr
                   %td
-                    = link_to content.id, edit_content_path(content)
+                    = link_to content.id, content
                   %td
                     = content.name
                   %td
@@ -43,7 +43,7 @@
           = will_paginate @contents, :renderer => BootstrapPaginationRenderer
 
   %p{:class=>"pull-left pager"}
-    = link_to 'New', new_content_path
-  %p{:class=>"pull-right pager"}
     = link_to "Back to Top", '/'
+  %p{:class=>"pull-right pager"}
+    = link_to 'New', new_content_path
 
