@@ -20,7 +20,7 @@ group :doc do
 end
 
 # gem "meta_search"
-# gem "will_paginate", "~> 3"
+gem "will_paginate", "~> 3"
 
 # gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'unicorn'
