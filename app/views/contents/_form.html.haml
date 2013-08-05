@@ -7,20 +7,19 @@
           %li= msg
 
   .fieldset
-    .story
-      .row
-        .span10.offset1
-          %h3
-            Input new record.
-          .input
-            .field
-              = f.label :name
-              = f.text_field :name
-            .field
-              = f.label :body
-              = f.text_area :body
+    .row
+      .span10.offset1
+        %h3
+          Input new record.
+        .input
+          .field
+            = f.label :name
+            = f.text_field :name
+          .field
+            = f.label :body
+            = f.text_area :body
 
-            .form-actions
-              .input
-                = f.submit 'Send', :class => 'btn btn-primary'
+          .form-actions
+            .input
+              = f.submit 'Send', :class => 'btn btn-primary'
 
