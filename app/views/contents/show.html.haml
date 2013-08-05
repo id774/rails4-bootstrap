@@ -27,8 +27,8 @@
             %tr
               %td Updated at
               %td= @content.updated_at.strftime "%Y/%m/%d %X"
-        %p{:class=>"pull-left pager"}
+        %p.pull-left.pager
           = link_to 'Back', contents_path
-        %p{:class=>"pull-right pager"}
+        %p.pull-right.pager
           = link_to 'Edit', edit_content_path(@content)
 

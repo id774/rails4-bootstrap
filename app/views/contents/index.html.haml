@@ -42,8 +42,8 @@
 
           = will_paginate @contents, :renderer => BootstrapPaginationRenderer
 
-  %p{:class=>"pull-left pager"}
+  %p.pull-left.pager
     = link_to "Back to Top", '/'
-  %p{:class=>"pull-right pager"}
+  %p.pull-right.pager
     = link_to 'New', new_content_path
 
