@@ -72,7 +72,7 @@ class BootstrapPaginationRenderer < WillPaginate::ActionView::LinkRenderer
         ((item.is_a?(Fixnum))?
           page_number(item) :
           send(item)))
-    end.map{|x|x.gsub(/em/, "a")}.join(@options[:link_separator])
+    end.map{|x|x.gsub(/><em/, " class=\"active\"><a").gsub(/em/, "a")}.join(@options[:link_separator])
 
     html = tag(:ul, html)
 
