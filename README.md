@@ -9,6 +9,7 @@ Description
 
 Rails4 Bootstrap supports:
 
+* [Twitter Bootstrap](http://http://twitter.github.io/bootstrap/)
 * [Haml](http://haml-lang.com/)
 * [Sass](http://sass-lang.com/)
 * [Compass](https://github.com/chriseppstein/compass)
