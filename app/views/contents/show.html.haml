@@ -1,12 +1,33 @@
-%p#notice= notice
+%section
+  .container
+    .page-header
+      %h2 Detail
+      %small This is a sample detail page.
+    .row
+      .span10.offset1
+        %table{:class => 'table table-bordered table-striped'}
+          %thead
+            %tr
+              %th{:style => "width: 150px;"} Key
+              %th Value
+          %tbody
+            %tr
+              %td ID
+              %td= @content.id
+            %tr
+              %td Name
+              %td= @content.name
+            %tr
+              %td Body
+              %td= @content.body
+            %tr
+              %td Created at
+              %td= @content.created_at.strftime "%Y/%m/%d %X"
+            %tr
+              %td Updated at
+              %td= @content.updated_at.strftime "%Y/%m/%d %X"
+        %p{:class=>"pull-left pager"}
+          = link_to 'Edit', edit_content_path(@content)
+        %p{:class=>"pull-right pager"}
+          = link_to 'Back', contents_path
 
-%p
-  %b Name:
-  = @content.name
-%p
-  %b Body:
-  = @content.body
-
-= link_to 'Edit', edit_content_path(@content)
-\|
-= link_to 'Back', contents_path

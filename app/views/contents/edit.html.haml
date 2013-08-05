@@ -2,6 +2,10 @@
 
 = render 'form'
 
-= link_to 'Show', @content
-\|
-= link_to 'Back', contents_path
+.row
+  .span10.offset1
+    %p{:class=>"pull-left pager"}
+      = link_to 'Show', @content
+    %p{:class=>"pull-right pager"}
+      = link_to 'Back', contents_path
+

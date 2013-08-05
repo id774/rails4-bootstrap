@@ -1,5 +1,15 @@
-%h1 New content
+.apps-new-page
+  .page-header
+    .title_enquiry
+      %h1
+        New
 
-= render 'form'
+  .row
+    .span12
+      = render 'form'
 
-= link_to 'Back', contents_path
+.row
+  .span10.offset1
+    %p{:class=>"pull-right pager"}
+      = link_to 'Back', contents_path
+
