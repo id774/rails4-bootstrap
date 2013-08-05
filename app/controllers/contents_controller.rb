@@ -1,28 +1,20 @@
 class ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update, :destroy]
 
-  # GET /contents
-  # GET /contents.json
   def index
-    @contents = Content.all
+    @contents = Content.paginate(:page => params[:page], :order => "id DESC")
   end
 
-  # GET /contents/1
-  # GET /contents/1.json
   def show
   end
 
-  # GET /contents/new
   def new
     @content = Content.new
   end
 
-  # GET /contents/1/edit
   def edit
   end
 
-  # POST /contents
-  # POST /contents.json
   def create
     @content = Content.new(content_params)
 
@@ -37,8 +29,6 @@ class ContentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /contents/1
-  # PATCH/PUT /contents/1.json
   def update
     respond_to do |format|
       if @content.update(content_params)
@@ -51,8 +41,6 @@ class ContentsController < ApplicationController
     end
   end
 
-  # DELETE /contents/1
-  # DELETE /contents/1.json
   def destroy
     @content.destroy
     respond_to do |format|
@@ -62,13 +50,32 @@ class ContentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_content
       @content = Content.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def content_params
       params.require(:content).permit(:name, :body)
     end
+end
+
+class BootstrapPaginationRenderer < WillPaginate::ActionView::LinkRenderer
+  private
+  def previous_or_next_page(page, text, classname)
+    link(text, page, :class => classname) unless page == false
+  end
+
+  public
+  def to_html
+    html = pagination.map do |item|
+      tag(:li,
+        ((item.is_a?(Fixnum))?
+          page_number(item) :
+          send(item)))
+    end.map{|x|x.gsub(/em/, "a")}.join(@options[:link_separator])
+
+    html = tag(:ul, html)
+
+    @options[:container] ? html_container(html) : html
+  end
 end

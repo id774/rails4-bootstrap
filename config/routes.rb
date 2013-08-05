@@ -1,4 +1,4 @@
 Rails4Bootstrap::Application.routes.draw do
-  root :to => 'contents#new'
+  root :to => 'contents#index'
   resources :contents
 end

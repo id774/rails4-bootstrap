@@ -1,21 +1,49 @@
-%h1 Listing contents
+.page-header
+  %h2 Index
+  %small This is sample index page.
 
-%table
-  %tr
-    %th Name
-    %th Body
-    %th
-    %th
-    %th
+.admin-index
+  .container
+    .content
+      .row
+        .span12
+          %table{:class => 'table table-bordered table-striped'}
+            %thead
+              %tr
+                %th
+                  ID
+                %th
+                  Name
+                %th
+                  Body
+                %th
+                  Created at
+                %th
+                  Updated at
+                %th
+                  Operation
+            %tbody
+              - @contents.each do |content|
+                %tr
+                  %td
+                    = link_to content.id, edit_content_path(content)
+                  %td
+                    = content.name
+                  %td
+                    = content.body
+                  %td
+                    = content.created_at.strftime "%Y/%m/%d %X"
+                  %td
+                    = content.updated_at.strftime "%Y/%m/%d %X"
+                  %td
+                    = link_to 'Show', content
+                    = link_to 'Edit', edit_content_path(content)
+                    = link_to 'Destroy', content, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-  - @contents.each do |content|
-    %tr
-      %td= content.name
-      %td= content.body
-      %td= link_to 'Show', content
-      %td= link_to 'Edit', edit_content_path(content)
-      %td= link_to 'Destroy', content, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          = will_paginate @contents, :renderer => BootstrapPaginationRenderer
 
-%br
+  %p{:class=>"pull-left pager"}
+    = link_to 'New', new_content_path
+  %p{:class=>"pull-right pager"}
+    = link_to "Back to Top", '/'
 
-= link_to 'New Content', new_content_path
