@@ -1,4 +1,4 @@
-# Version:20130805
+# Version:20130806
 
 source 'https://rubygems.org'
 
@@ -21,9 +21,22 @@ group :doc do
 end
 
 # gem "meta_search"
-gem "will_paginate", "~> 3"
+gem "will_paginate", '~> 3.0.0'
 
 # gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'unicorn'
 # gem 'capistrano', group: :development
 # gem 'debugger', group: [:development, :test]
+
+group :test do
+  gem 'rspec'
+  gem 'rcov', :platforms => :mri_18
+  gem 'simplecov'
+  gem 'simplecov-rcov'
+  gem 'rspec-rails'
+end
+
+group :development do
+  gem "cucumber"
+  gem "bundler"
+end
