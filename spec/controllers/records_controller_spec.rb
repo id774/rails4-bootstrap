@@ -2,23 +2,23 @@
 
 require File.dirname(__FILE__) + '/../spec_helper'
 
-describe ContentsController, 'Contents' do
+describe RecordsController, 'Records' do
   fixtures :all
 
   context 'にアクセスする場合' do
     # login_admin
 
     def create
-      post 'create' , :content => {
-        "name"=>"ほげ",
-        "body"=>"ふが"
+      post 'create' , :record => {
+        "key"=>"ほげ",
+        "value"=>"ふが"
       }
     end
 
     def update
-      post 'update' , :content => {
-        "name"=>"ぴよ",
-        "body"=>"ほげ"
+      post 'update' , :record => {
+        "key"=>"ぴよ",
+        "value"=>"ほげ"
       }, :id => 6
     end
 
@@ -53,37 +53,37 @@ describe ContentsController, 'Contents' do
     describe '作成' do
       it "作成処理が正常終了する" do
         create
-        response.redirect_url.should == 'http://test.host/contents/7'
+        response.redirect_url.should eql 'http://test.host/records/7'
         response.header.should have_at_least(1).items
         response.body.should have_at_least(1).items
         flash[:notice].should_not be_nil
-        flash[:notice].should == 'Content was successfully created.'
+        flash[:notice].should eql 'Record was successfully created.'
       end
 
       it "新規レコードが作成される" do
         create
-        content = Content.find(7)
-        content.name.should == "ほげ"
-        content.body.should == "ふが"
+        record = Record.find(7)
+        record.key.should eql "ほげ"
+        record.value.should eql "ふが"
       end
     end
 
     describe '更新' do
       it "更新処理が正常終了する" do
         update
-        contents = Content.all
-        response.redirect_url.should == 'http://test.host/contents/6'
+        records = Record.all
+        response.redirect_url.should eql 'http://test.host/records/6'
         response.header.should have_at_least(1).items
         response.body.should have_at_least(1).items
         flash[:notice].should_not be_nil
-        flash[:notice].should == 'Content was successfully updated.'
+        flash[:notice].should eql 'Record was successfully updated.'
       end
 
       it "レコードが更新される" do
         update
-        content = Content.find(6)
-        content.name.should == "ぴよ"
-        content.body.should == "ほげ"
+        record = Record.find(6)
+        record.key.should eql "ぴよ"
+        record.value.should eql "ほげ"
       end
     end
 
@@ -92,11 +92,11 @@ describe ContentsController, 'Contents' do
         post 'destroy', :id => 1
 
         response.should be_redirect
-        response.redirect_url.should == 'http://test.host/contents'
+        response.redirect_url.should eql 'http://test.host/records'
         response.header.should have_at_least(1).items
         response.body.should have_at_least(1).items
         lambda {
-          Content.find(1)
+          Record.find(1)
         }.should raise_error ActiveRecord::RecordNotFound
       end
     end

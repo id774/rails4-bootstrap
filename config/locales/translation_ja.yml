@@ -7,19 +7,19 @@ ja:
       last: "最後"
       truncate: ""
 
-    content:
-      name: "名前"  #g
-      body: "内容"  #g
+    record:
+      key: "項目"  #g
+      value: "値"  #g
 
   activerecord:
     models:
-      name: "名前"  #g
-      body: "内容"  #g
+      key: "項目"  #g
+      value: "値"  #g
 
     attributes:
-      story:
-        name: "名前"  #g
-        body: "内容"  #g
+      record:
+        key: "項目"  #g
+        value: "値"  #g
 
   will_paginate:
     next_label: Next →

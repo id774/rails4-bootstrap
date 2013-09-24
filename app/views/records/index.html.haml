@@ -4,7 +4,7 @@
 
 .admin-index
   .container
-    .content
+    .record
       .row
         .span12
           %table{:class => 'table table-bordered table-striped'}
@@ -13,9 +13,9 @@
                 %th
                   ID
                 %th
-                  Name
+                  Key
                 %th
-                  Body
+                  Value
                 %th
                   Created at
                 %th
@@ -23,27 +23,27 @@
                 %th
                   Operation
             %tbody
-              - @contents.each do |content|
+              - @records.each do |record|
                 %tr
                   %td
-                    = link_to content.id, content
+                    = link_to record.id, record
                   %td
-                    = content.name
+                    = record.key
                   %td
-                    = content.body
+                    = record.value
                   %td
-                    = content.created_at.strftime "%Y/%m/%d %X"
+                    = record.created_at.strftime "%Y/%m/%d %X"
                   %td
-                    = content.updated_at.strftime "%Y/%m/%d %X"
+                    = record.updated_at.strftime "%Y/%m/%d %X"
                   %td
-                    = link_to 'Show', content
-                    = link_to 'Edit', edit_content_path(content)
-                    = link_to 'Destroy', content, :method => :delete, :data => { :confirm => 'Are you sure?' }
+                    = link_to 'Show', record
+                    = link_to 'Edit', edit_record_path(record)
+                    = link_to 'Destroy', record, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-          = will_paginate @contents, :renderer => BootstrapPaginationRenderer
+          = will_paginate @records, :renderer => BootstrapPaginationRenderer
 
   %p.pull-left.pager
     = link_to "Back to Top", root_path
   %p.pull-right.pager
-    = link_to 'New', new_content_path
+    = link_to 'New', new_record_path
 

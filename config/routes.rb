@@ -1,4 +1,4 @@
 RailsApp::Application.routes.draw do
-  root :to => 'contents#index'
-  resources :contents
+  root :to => 'records#index'
+  resources :records
 end
