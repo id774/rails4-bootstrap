@@ -2,7 +2,7 @@ class RecordsController < ApplicationController
   before_action :set_record, only: [:show, :edit, :update, :destroy]
 
   def index
-    @records = Record.paginate(page: params[:page], per_page: 10).order("id DESC")
+    @records = Record.paginate(page: params[:page], per_page: Record.per_page).order("id DESC")
   end
 
   def show
