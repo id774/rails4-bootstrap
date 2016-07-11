@@ -13,7 +13,7 @@ require 'rspec/core/rake_task'
 
 task :spec do
   RSpec::Core::RakeTask.new(:spec) do |spec|
-    spec.rspec_opts = ["-c","-fs"]
+    spec.rspec_opts = ["-c","-f documentation"]
     spec.pattern = FileList['spec/**/*_spec.rb']
   end
 end

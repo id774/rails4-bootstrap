@@ -1,4 +1,4 @@
-# Version:20130807
+# Version:20160711
 
 source 'https://rubygems.org'
 
@@ -13,27 +13,21 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'haml-rails'
-gem "compass-rails", "~> 2.0.alpha.0"
+gem "compass-rails", "~> 2.0"
 gem 'i18n_generators'
 
 group :doc do
   gem 'sdoc', require: false
 end
 
-# gem "meta_search"
 gem "will_paginate", '~> 3.0.0'
 
-# gem 'bcrypt-ruby', '~> 3.0.0'
-# gem 'unicorn'
-# gem 'capistrano', group: :development
-# gem 'debugger', group: [:development, :test]
-
 group :test do
-  gem 'rspec'
+  gem 'rspec', '~> 3.5'
   gem 'rcov', :platforms => :mri_18
   gem 'simplecov'
   gem 'simplecov-rcov'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do
