@@ -12,10 +12,10 @@
       = yield(:title) || "No Title"
     = yield(:head)
 
-  %body(class='#{controller_name}-#{action_name}-page' data-spy="scroll" data-target=".subnav" data-offset="50")
-    %section{:id => "topbar"}
+    %body(class='#{controller_name}-#{action_name}-page' data-spy="scroll" data-target=".subnav" data-offset="50")
+    %section#topbar
       = render :template => 'layouts/_topbar'
-    %section{:id => "main"}
+    %section#main
       = render :template => 'homes/_portal'
-    %section{:id => "footer"}
+    %section#footer
       = render :template => 'layouts/_footer'
