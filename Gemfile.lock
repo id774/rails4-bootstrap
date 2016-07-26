@@ -170,20 +170,20 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  coffee-rails (~> 4)
-  compass-rails (~> 2.0)
+  coffee-rails
+  compass-rails
   haml-rails
   i18n_generators
-  jbuilder (~> 1.2)
+  jbuilder
   jquery-rails
-  pg (~> 0.15)
-  rails (~> 4)
+  pg
+  rails
   rails_12factor
-  sass-rails (~> 4)
+  sass-rails
   sdoc
   turbolinks
-  uglifier (~> 1.3)
-  will_paginate (~> 3.0.0)
+  uglifier
+  will_paginate
 
 BUNDLED WITH
    1.12.3
